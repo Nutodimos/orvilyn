@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #FFFAF3;
+  --surface: #FFFFFF;
+  --ink: #1F1B16;
+  --muted: #6B645B;
+  --line: #EADFD0;
+  --orange: #FF6A13;
+  --orange-strong: #E85A06;
+  --orange-tint: #FFF1E5;
+  --on-orange: #1F1B16;
+  --butter: #FFE08A;
+
+  --radius-card: 20px;
+  --radius-block: 28px;
+  --radius-btn: 9999px;
+
+  --shadow-card: 0 10px 30px rgba(31, 27, 22, 0.08);
+  --shadow-hover: 0 16px 40px rgba(31, 27, 22, 0.12);
+  --shadow-hero-lift: 0 20px 50px rgba(31, 27, 22, 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), system-ui, -apple-system, sans-serif;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  word-spacing: 0.05em;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+:focus-visible {
+  outline: 3px solid var(--orange) !important;
+  outline-offset: 3px !important;
+}
+
+/* Keyframe animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shape-morph-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(12px, -14px) scale(1.08) rotate(10deg);
+  }
+}
+
+@keyframes shape-morph-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-14px, 10px) scale(0.94) rotate(-12deg);
+  }
+}
+
+@keyframes shape-morph-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(8px, 12px) scale(1.04) rotate(8deg);
+  }
+}
+
+@keyframes marker-swipe {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-marker-swipe {
+  transform-origin: left;
+  animation: marker-swipe 700ms cubic-bezier(0.22, 1, 0.36, 1) 600ms forwards;
+  transform: scaleX(0);
+}
+
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+.animate-ticker {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+.animate-hero-float-a {
+  animation: hero-float 6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.animate-hero-float-b {
+  animation: hero-float 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-hero-float-c {
+  animation: hero-float 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.animate-shape-1 {
+  animation: shape-morph-1 8s ease-in-out infinite;
+}
+
+.animate-shape-2 {
+  animation: shape-morph-2 8s ease-in-out infinite 2s;
+}
+
+.animate-shape-3 {
+  animation: shape-morph-3 8s ease-in-out infinite 4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee,
+  .animate-ticker,
+  .animate-marker-swipe,
+  .animate-hero-float-a,
+  .animate-hero-float-b,
+  .animate-hero-float-c,
+  .animate-shape-1,
+  .animate-shape-2,
+  .animate-shape-3 {
+    animation: none !important;
+  }
+
+  .animate-marker-swipe {
+    transform: scaleX(1) !important;
+  }
+}
