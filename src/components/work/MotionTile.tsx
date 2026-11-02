@@ -136,7 +136,7 @@ export function MotionTile({ piece }: MotionTileProps) {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           poster={piece.poster || undefined}
           className="w-full h-full object-cover"
         >

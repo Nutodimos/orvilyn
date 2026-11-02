@@ -9,6 +9,7 @@ export interface RevealProps {
   delay?: number;
   className?: string;
   amount?: number;
+  aboveTheFold?: boolean;
 }
 
 export function Reveal({
@@ -16,10 +17,11 @@ export function Reveal({
   delay = 0,
   className = "",
   amount = 0.2,
+  aboveTheFold = false,
 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
 
-  if (shouldReduceMotion) {
+  if (shouldReduceMotion || aboveTheFold) {
     return <div className={className}>{children}</div>;
   }
 

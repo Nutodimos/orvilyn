@@ -2,7 +2,6 @@ import React from "react";
 import { site } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { Reveal } from "@/components/ui/Reveal";
 import { HeroVisual } from "./HeroVisual";
 
 export function Hero() {
@@ -16,33 +15,31 @@ export function Hero() {
           {/* Left Column: Text (60% on lg+) */}
           <div className="w-full lg:w-[60%] flex flex-col items-start z-10">
             {/* Headline */}
-            <Reveal delay={0}>
-              <h1 className="text-[var(--ink)] isolate">
-                <span className="block lg:whitespace-nowrap">
-                  You’ve got a business.
+            <h1 className="text-[var(--ink)] isolate hero-enter-title">
+              <span className="block lg:whitespace-nowrap">
+                You’ve got a business.
+              </span>
+              <span className="block lg:whitespace-nowrap">
+                <span className="relative inline-block">
+                  We’ll handle the tech.
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-[6%] h-[0.38em] bg-[var(--orange)] opacity-[0.55] rounded-[4px] -z-10 animate-marker-swipe"
+                  />
                 </span>
-                <span className="block lg:whitespace-nowrap">
-                  <span className="relative inline-block">
-                    We’ll handle the tech.
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-x-0 bottom-[6%] h-[0.38em] bg-[var(--orange)] opacity-[0.55] rounded-[4px] -z-10 animate-marker-swipe"
-                    />
-                  </span>
-                </span>
-              </h1>
-            </Reveal>
+              </span>
+            </h1>
 
             {/* Subline */}
-            <Reveal delay={0.08} className="mt-6">
+            <div className="mt-6 hero-enter-desc">
               <p className="text-[var(--muted)] text-xl leading-relaxed max-w-[32rem]">
                 Websites, apps, and tools that work, with motion that makes them
                 feel alive.
               </p>
-            </Reveal>
+            </div>
 
             {/* Buttons Row */}
-            <Reveal delay={0.16} className="mt-8 relative z-10">
+            <div className="mt-8 relative z-10 hero-enter-actions">
               <div className="relative z-10 flex flex-wrap items-center gap-4">
                 <MagneticButton>
                   <Button href={site.cta.href} variant="primary" size="lg">
@@ -58,7 +55,7 @@ export function Hero() {
                   See our work
                 </Button>
               </div>
-            </Reveal>
+            </div>
           </div>
 
           {/* Right Column: Visual (40% on lg+) */}

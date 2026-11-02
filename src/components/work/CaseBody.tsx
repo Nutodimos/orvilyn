@@ -64,6 +64,7 @@ export function CaseBody({ caseStudy }: CaseBodyProps) {
                       alt={img.alt}
                       width={img.width}
                       height={img.height}
+                      sizes="(max-width: 640px) 100vw, 500px"
                       className="w-full h-full object-cover"
                     />
                   </div>

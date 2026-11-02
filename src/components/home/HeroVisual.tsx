@@ -147,7 +147,7 @@ export function HeroVisual() {
           height={652}
           alt="CeVo admin dashboard showing live election turnout and verified voter activity"
           className="block w-full h-auto"
-          sizes="(min-width: 1024px) 340px, 70vw"
+          sizes="(max-width: 768px) 70vw, (max-width: 1024px) 60vw, 340px"
           priority
         />
       </motion.div>
@@ -169,7 +169,7 @@ export function HeroVisual() {
           height={857}
           alt="NutoPass mobile dashboard showing today’s attendance"
           className="block h-full w-full object-cover object-top"
-          sizes="150px"
+          sizes="(max-width: 768px) 30vw, 150px"
         />
       </motion.div>
 
@@ -196,7 +196,7 @@ export function HeroVisual() {
           height={349}
           alt="Events operations dashboard showing new leads and confirmed bookings"
           className="block w-full h-auto"
-          sizes="(min-width: 1024px) 260px, 50vw"
+          sizes="(max-width: 768px) 50vw, 260px"
         />
       </motion.div>
     </div>

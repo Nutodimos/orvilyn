@@ -65,6 +65,8 @@ export function MoveBand({ videoSrc }: MoveBandProps) {
   const shouldReduceMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const moveService = services.find((s) => s.group === "move");
 
@@ -78,30 +80,57 @@ export function MoveBand({ videoSrc }: MoveBandProps) {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Auto-advance through bumpers every 6.5s
+  // Viewport intersection observer: only play video and advance bumpers when in view
   useEffect(() => {
-    if (shouldReduceMotion || videoSrc) return;
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        const visible = entry.isIntersecting;
+        setIsInView(visible);
+        if (visible) {
+          if (!shouldReduceMotion && videoRef.current) {
+            videoRef.current.play().catch(() => {});
+          }
+        } else {
+          if (videoRef.current && !videoRef.current.paused) {
+            videoRef.current.pause();
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [shouldReduceMotion]);
+
+  // Auto-advance through bumpers every 6.5s ONLY when in view
+  useEffect(() => {
+    if (shouldReduceMotion || videoSrc || !isInView) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % MOTION_BUMPERS.length);
     }, 6500);
     return () => clearInterval(timer);
-  }, [currentIndex, shouldReduceMotion, videoSrc]);
+  }, [currentIndex, shouldReduceMotion, videoSrc, isInView]);
 
   const current = MOTION_BUMPERS[currentIndex];
   const activeVideoSrc = videoSrc || (isMobile ? current.mobileVideo : current.desktopVideo);
 
-  // Reload and start video on piece change
+  // Reload and start video on piece change ONLY when in view
   useEffect(() => {
-    if (videoRef.current && !shouldReduceMotion) {
+    if (videoRef.current && !shouldReduceMotion && isInView) {
       videoRef.current.load();
       videoRef.current.play().catch(() => {
         // Autoplay handled safely by browser policy
       });
     }
-  }, [currentIndex, isMobile, shouldReduceMotion]);
+  }, [currentIndex, isMobile, shouldReduceMotion, isInView]);
 
   return (
-    <section className="w-full bg-[var(--ink)] text-[var(--bg)] py-24 md:py-32">
+    <section ref={sectionRef} className="w-full bg-[var(--ink)] text-[var(--bg)] py-24 md:py-32">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
@@ -148,10 +177,9 @@ export function MoveBand({ videoSrc }: MoveBandProps) {
                 key={`${current.id}-${isMobile ? "mob" : "desk"}`}
                 src={activeVideoSrc}
                 poster={current.poster}
-                autoPlay={!shouldReduceMotion}
                 muted
                 playsInline
-                preload="metadata"
+                preload="none"
                 onEnded={() => {
                   if (!videoSrc) {
                     setCurrentIndex((prev) => (prev + 1) % MOTION_BUMPERS.length);

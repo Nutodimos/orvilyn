@@ -7,7 +7,12 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { site } from "@/data/site";
 import { Button } from "@/components/ui/Button";
-import { MobileMenu } from "./MobileMenu";
+import dynamic from "next/dynamic";
+
+const MobileMenu = dynamic(
+  () => import("./MobileMenu").then((mod) => mod.MobileMenu),
+  { ssr: false }
+);
 
 function subscribeScroll(callback: () => void) {
   if (typeof window === "undefined") return () => {};
@@ -55,8 +60,8 @@ export function Navbar() {
               alt="Orvilyn logo"
               width={32}
               height={32}
+              sizes="32px"
               className="h-8 w-auto object-contain"
-              priority
             />
             <span className="font-[var(--font-display)] font-extrabold text-xl tracking-tight text-[var(--ink)]">
               Orvilyn

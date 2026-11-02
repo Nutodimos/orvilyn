@@ -14,7 +14,7 @@ export function CaseHero({ project, caseStudy }: CaseHeroProps) {
   return (
     <section className="w-full pt-12 pb-10 md:pt-20 md:pb-14">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <Reveal>
+        <Reveal aboveTheFold>
           {/* Back link */}
           <div className="mb-6">
             <Button

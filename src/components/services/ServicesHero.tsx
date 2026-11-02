@@ -13,7 +13,7 @@ export function ServicesHero() {
   return (
     <section className="w-full bg-[var(--bg)] py-20 md:pt-28 md:pb-12">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <Reveal>
+        <Reveal aboveTheFold>
           <h1 className="text-[var(--ink)]">Here’s what we make.</h1>
           <p className="text-[var(--muted)] text-[1.25rem] max-w-[36rem] mt-4 leading-relaxed">
             Five things, done properly. Not on the list? We’ll tell you straight.

@@ -168,7 +168,7 @@ export function FernhillSystem() {
             </h3>
             <div className="relative aspect-[2576/1095] w-full rounded-2xl overflow-hidden border border-[var(--line)] shadow-xs bg-[#14110F]">
               <Image
-                src="/work/fernhill-records/previews/fernhill-records-contact-sheet.jpg"
+                src="/work/fernhill-records/previews/fernhill-records-contact-sheet.webp"
                 alt="Fernhill Records motion system contact sheet showing scene frames from the label reel, logo sting, album announcement, and social loops."
                 fill
                 sizes="(min-width: 1200px) 1140px, 100vw"

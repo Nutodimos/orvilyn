@@ -145,7 +145,7 @@ export function MeridianSystem() {
           </h3>
           <figure className="relative rounded-[20px] overflow-hidden border border-[var(--line)] bg-[var(--surface)] shadow-md">
             <Image
-              src="/work/meridian/previews/meridian-contact-sheet.jpg"
+              src="/work/meridian/previews/meridian-contact-sheet.webp"
               alt="Meridian contact sheet showing sequential frames from chaotic jagged graphs to golden horizon and tax reserves"
               width={2560}
               height={1440}

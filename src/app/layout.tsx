@@ -18,15 +18,27 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const title = "Orvilyn | Websites, apps, and tools for your business";
+const description =
+  "Orvilyn builds websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://orvilyn.com"),
-  title: "Orvilyn | Websites, apps, and tools for your business",
-  description:
-    "Orvilyn builds websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://orvilyn.vercel.app"
+  ),
+  title,
+  description,
   openGraph: {
-    title: "Orvilyn | Websites, apps, and tools for your business",
-    description:
-      "Orvilyn builds websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled.",
+    title,
+    description,
+    siteName: "Orvilyn",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
   },
 };
 

@@ -5,7 +5,7 @@ export function ContactHero() {
   return (
     <section className="pt-20 pb-10 md:pt-28 md:pb-14 bg-[var(--bg)]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <Reveal>
+        <Reveal aboveTheFold>
           <h1 className="text-[var(--ink)]">
             Tell us what’s annoying you.
           </h1>

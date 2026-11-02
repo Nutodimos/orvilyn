@@ -144,7 +144,7 @@ export function TidewellSystem() {
             </h3>
             <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-[var(--line)] shadow-xs bg-[#123B38]">
               <Image
-                src="/work/tidewell/img/tidewell-contact-sheet.jpg"
+                src="/work/tidewell/img/tidewell-contact-sheet.webp"
                 alt="Tidewell motion system contact sheet showing scene frames from the logo reveal, hero spot, flavour launch, social loops, and principles."
                 fill
                 sizes="(min-width: 1200px) 1140px, 100vw"

@@ -18,11 +18,11 @@ export function AboutHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Text (7 of 12 on lg) */}
           <div className="w-full lg:col-span-7 flex flex-col items-start">
-            <Reveal delay={0}>
+            <Reveal aboveTheFold delay={0}>
               <h1 className="text-[var(--ink)]">Hi, I’m Somidotun.</h1>
             </Reveal>
 
-            <Reveal delay={0.08} className="mt-5">
+            <Reveal aboveTheFold delay={0.08} className="mt-5">
               <p className="text-[var(--muted)] text-[1.25rem] leading-relaxed max-w-[34rem]">
                 I’m a computer engineer from Lagos. I started Orvilyn to help small
                 and medium businesses find their footing online, and to build the
@@ -30,7 +30,7 @@ export function AboutHero() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.16} className="mt-7">
+            <Reveal aboveTheFold delay={0.16} className="mt-7">
               <div className="flex flex-wrap gap-[10px] items-center">
                 {credentials.map((item, index) => (
                   <span
@@ -43,7 +43,7 @@ export function AboutHero() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.24} className="mt-8">
+            <Reveal aboveTheFold delay={0.24} className="mt-8">
               <div className="flex flex-wrap items-center gap-4">
                 <MagneticButton>
                   <Button href={site.cta.href} variant="primary" size="lg">
@@ -64,7 +64,7 @@ export function AboutHero() {
 
           {/* Right Column: Portrait (5 of 12 on lg) */}
           <div className="w-full lg:col-span-5 flex justify-center mt-4 lg:mt-0">
-            <Reveal delay={0.2} className="w-full max-w-[320px] sm:max-w-[420px] mx-auto">
+            <Reveal aboveTheFold delay={0.2} className="w-full max-w-[320px] sm:max-w-[420px] mx-auto">
               <div className="relative w-full">
                 {/* Background panel */}
                 <div

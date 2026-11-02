@@ -32,6 +32,7 @@ export function Footer() {
                 alt="Orvilyn logo"
                 width={28}
                 height={28}
+                sizes="28px"
                 className="h-7 w-auto object-contain"
               />
               <span className="font-[var(--font-display)] font-extrabold text-lg tracking-tight text-[var(--ink)]">
