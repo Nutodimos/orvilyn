@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useSyncExternalStore } from "react";
+import Image from "next/image";
 import {
   motion,
   useMotionValue,
@@ -140,13 +141,15 @@ export function HeroVisual() {
           <div className="w-2 h-2 rounded-full bg-[var(--ink)]/20" />
           <div className="w-2 h-2 rounded-full bg-[var(--ink)]/20" />
         </div>
-        {/* Browser skeleton body */}
-        <div className="p-4 flex flex-col gap-3">
-          <div className="h-[70px] w-full rounded-xl bg-[var(--orange)]" />
-          <div className="h-[10px] w-[80%] rounded-full bg-[var(--ink)]/10" />
-          <div className="h-[10px] w-[55%] rounded-full bg-[var(--ink)]/10" />
-          <div className="h-[22px] w-[90px] rounded-full bg-[var(--orange-tint)]" />
-        </div>
+        <Image
+          src="/work/orvane-cevo-hero.webp"
+          width={900}
+          height={652}
+          alt="CeVo admin dashboard showing live election turnout and verified voter activity"
+          className="block w-full h-auto"
+          sizes="(min-width: 1024px) 340px, 70vw"
+          priority
+        />
       </motion.div>
 
       {/* FRAME B: PHONE */}
@@ -156,42 +159,45 @@ export function HeroVisual() {
             ? { x: bX, y: bY, rotateX: bRotX, rotateY: bRotY }
             : undefined
         }
-        className={`absolute w-[28%] aspect-[9/19] right-0 top-[26%] bg-[var(--surface)] border-[6px] border-[var(--ink)] rounded-[28px] shadow-[var(--shadow-hero-lift)] p-3 flex flex-col gap-[10px] overflow-hidden z-30 ${
+        className={`absolute w-[28%] aspect-[9/19] right-0 top-[26%] bg-[var(--surface)] border-[6px] border-[var(--ink)] rounded-[28px] shadow-[var(--shadow-hero-lift)] overflow-hidden z-30 ${
           isFloat ? "animate-hero-float-b" : ""
         }`}
       >
-        <div className="w-7 h-7 rounded-full bg-[var(--orange)] shrink-0" />
-        <div className="h-2 w-full rounded-full bg-[var(--ink)]/10 shrink-0" />
-        <div className="h-2 w-[75%] rounded-full bg-[var(--ink)]/10 shrink-0" />
-        <div className="h-16 w-full rounded-[12px] bg-[var(--orange-tint)] shrink-0" />
-        <div className="h-7 w-full rounded-full bg-[var(--orange)] shrink-0" />
-        <div className="h-2 w-[60%] rounded-full bg-[var(--ink)]/10 shrink-0" />
-        <div className="mt-auto flex items-center justify-around w-full shrink-0">
-          <div className="w-2.5 h-2.5 rounded-full bg-[var(--ink)]/15 shrink-0" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[var(--ink)]/15 shrink-0" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[var(--ink)]/15 shrink-0" />
-        </div>
+        <Image
+          src="/work/orvane-nutopass-phone.webp"
+          width={376}
+          height={857}
+          alt="NutoPass mobile dashboard showing today’s attendance"
+          className="block h-full w-full object-cover object-top"
+          sizes="150px"
+        />
       </motion.div>
 
-      {/* FRAME C: DASHBOARD */}
+      {/* FRAME C: DARK APP WINDOW */}
       <motion.div
         style={
           isInteractive
             ? { x: cX, y: cY, rotateX: cRotX, rotateY: cRotY }
             : undefined
         }
-        className={`absolute w-[52%] bottom-[2%] left-[14%] bg-[var(--surface)] border border-[var(--line)] rounded-[20px] shadow-[var(--shadow-hero-lift)] p-4 z-20 ${
+        className={`absolute w-[50%] bottom-[8%] left-[12%] bg-[#0d1117] border border-white/15 rounded-[18px] shadow-[0_22px_45px_rgba(0,0,0,0.32)] overflow-hidden z-20 ${
           isFloat ? "animate-hero-float-c" : ""
         }`}
       >
-        <div className="h-2.5 w-[45%] rounded-full bg-[var(--ink)]/10 mb-4" />
-        <div className="flex items-end justify-between h-[80px] gap-2 pt-1">
-          <div className="w-full h-[45%] rounded-t-md bg-[var(--orange)]" />
-          <div className="w-full h-[80%] rounded-t-md bg-[var(--orange-tint)]" />
-          <div className="w-full h-[55%] rounded-t-md bg-[var(--orange)]" />
-          <div className="w-full h-[95%] rounded-t-md bg-[var(--orange-tint)]" />
-          <div className="w-full h-[70%] rounded-t-md bg-[var(--orange)]" />
+        {/* Dark window top bar */}
+        <div className="h-[22px] border-b border-white/10 px-2.5 flex items-center gap-1.5 bg-[#161b22]/90">
+          <div className="w-1.5 h-1.5 rounded-full bg-white/25" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/25" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/25" />
         </div>
+        <Image
+          src="/work/orvane-events-portal-hero.webp"
+          width={750}
+          height={349}
+          alt="Events operations dashboard showing new leads and confirmed bookings"
+          className="block w-full h-auto"
+          sizes="(min-width: 1024px) 260px, 50vw"
+        />
       </motion.div>
     </div>
   );

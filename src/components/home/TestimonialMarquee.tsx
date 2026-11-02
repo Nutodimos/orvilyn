@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { marquee, type MarqueeTestimonial } from "@/data/testimonials";
 
@@ -11,17 +11,13 @@ function MarqueeCard({ item }: { item: MarqueeTestimonial }) {
       <span className="text-[var(--muted)] ml-2">
         · {item.name}, {item.role}
       </span>
-      {item.isPlaceholder && (
-        <span className="ml-3 px-2 py-0.5 text-[0.75rem] font-medium text-[var(--muted)] border border-[var(--line)] rounded-full bg-[var(--surface)]">
-          Placeholder
-        </span>
-      )}
     </div>
   );
 }
 
 export function TestimonialMarquee() {
   const shouldReduceMotion = useReducedMotion();
+  const [isTouchPaused, setIsTouchPaused] = useState(false);
 
   if (shouldReduceMotion) {
     return (
@@ -44,8 +40,14 @@ export function TestimonialMarquee() {
     <div
       className="w-full overflow-hidden py-2"
       style={maskStyles}
+      onTouchStart={() => setIsTouchPaused(true)}
+      onTouchEnd={() => setIsTouchPaused(false)}
+      onTouchCancel={() => setIsTouchPaused(false)}
     >
-      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]">
+      <div
+        className="flex w-max animate-marquee [@media(hover:hover)_and_(pointer:fine)]:hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]"
+        style={{ animationPlayState: isTouchPaused ? "paused" : undefined }}
+      >
         {/* First set of 6 items */}
         <div className="flex shrink-0">
           {marquee.map((item, idx) => (

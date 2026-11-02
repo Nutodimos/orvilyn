@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useReducedMotion } from "framer-motion";
 
 const items = [
@@ -13,6 +13,7 @@ const items = [
 
 export function ServicesTicker() {
   const shouldReduceMotion = useReducedMotion();
+  const [isTouchPaused, setIsTouchPaused] = useState(false);
 
   if (shouldReduceMotion) {
     return (
@@ -37,8 +38,16 @@ export function ServicesTicker() {
   }
 
   return (
-    <div className="w-full bg-[var(--ink)] text-[var(--bg)] h-16 flex items-center overflow-hidden select-none">
-      <div className="flex w-max animate-ticker hover:[animation-play-state:paused]">
+    <div
+      className="w-full bg-[var(--ink)] text-[var(--bg)] h-16 flex items-center overflow-hidden select-none"
+      onTouchStart={() => setIsTouchPaused(true)}
+      onTouchEnd={() => setIsTouchPaused(false)}
+      onTouchCancel={() => setIsTouchPaused(false)}
+    >
+      <div
+        className="flex w-max animate-ticker [@media(hover:hover)_and_(pointer:fine)]:hover:[animation-play-state:paused]"
+        style={{ animationPlayState: isTouchPaused ? "paused" : undefined }}
+      >
         {/* First set of 5 items */}
         <div className="flex shrink-0 items-center gap-6 pr-6">
           {items.map((item) => (

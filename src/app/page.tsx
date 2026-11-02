@@ -7,7 +7,8 @@ import { HowItWorks } from "@/components/home/HowItWorks";
 import { SelectedWork } from "@/components/home/SelectedWork";
 import { StatementBand } from "@/components/home/StatementBand";
 import { Testimonials } from "@/components/home/Testimonials";
-import { WhyOrvane } from "@/components/home/WhyOrvane";
+import { showTestimonials } from "@/data/testimonials";
+import { WhyOrvilyn } from "@/components/home/WhyOrvilyn";
 import { FinalCta } from "@/components/home/FinalCta";
 
 export default function Home() {
@@ -21,8 +22,8 @@ export default function Home() {
       <HowItWorks />
       <SelectedWork />
       <StatementBand />
-      <Testimonials />
-      <WhyOrvane />
+      {showTestimonials && <Testimonials />}
+      <WhyOrvilyn />
       <FinalCta />
     </>
   );

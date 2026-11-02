@@ -45,19 +45,19 @@ export function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-2.5 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--orange)]"
-            aria-label="Orvane home"
+            aria-label="Orvilyn home"
           >
             {/* Logo mark from brand assets; TODO: Replace with full logo.svg when provided */}
             <Image
               src="/brand/logo-mark.png"
-              alt="Orvane logo"
+              alt="Orvilyn logo"
               width={32}
               height={32}
               className="h-8 w-auto object-contain"
               priority
             />
             <span className="font-[var(--font-display)] font-extrabold text-xl tracking-tight text-[var(--ink)]">
-              Orvane
+              Orvilyn
             </span>
           </Link>
 

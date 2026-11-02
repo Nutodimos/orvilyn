@@ -171,6 +171,23 @@ h3 {
   animation: shape-morph-3 8s ease-in-out infinite 4s;
 }
 
+/* FAQ Details / Summary */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  list-style: none;
+}
+
+.faq-icon {
+  transition: transform 250ms;
+}
+
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
@@ -194,4 +211,22 @@ h3 {
   .animate-marker-swipe {
     transform: scaleX(1) !important;
   }
+
+  .faq-icon {
+    transition: none !important;
+  }
 }
+
+/* Scoped tokens for Tidewell subject-matter elements only (never on :root) */
+.tidewell-scope {
+  --tw-deep: #1F5F5B;
+  --tw-mid: #4F8F87;
+  --tw-foam: #F4F7F5;
+  --tw-sand: #E6D9C3;
+  --tw-accent: #F2C94C;
+  --tw-ink: #123B38;
+  --tw-mint: #CFE0D6;
+  --tw-blood: #A96850;
+  --tw-rule: rgba(31, 95, 91, 0.16);
+}
+

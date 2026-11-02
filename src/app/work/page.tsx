@@ -1,22 +1,44 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/Button";
+import { projects } from "@/data/projects";
+import { caseStudies } from "@/data/caseStudies";
+import { showMotionSection } from "@/data/motion";
+import { WorkHero } from "@/components/work/WorkHero";
+import { ProjectRow } from "@/components/work/ProjectRow";
+import { MotionSection } from "@/components/work/MotionSection";
+import { FinalCta } from "@/components/home/FinalCta";
 
 export const metadata: Metadata = {
-  title: "Work | Orvane",
+  title: "Work | Orvilyn",
+  description:
+    "Selected projects from Somidotun and Orvilyn: what was built, the problem it solved, and what happened next.",
 };
 
 export default function WorkPage() {
+  const filteredProjects = projects.filter(
+    (project) => !project.title.toLowerCase().includes("placeholder")
+  );
+
   return (
-    <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-28">
-      <h1 className="text-[clamp(2.5rem,6vw,4.75rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--ink)] mb-4">
-        Work
-      </h1>
-      <p className="text-[var(--muted)] text-lg mb-8">
-        This page is coming soon.
-      </p>
-      <Button href="/" variant="link">
-        Back to home
-      </Button>
-    </div>
+    <main>
+      <WorkHero />
+      <div className="flex flex-col gap-6 md:gap-10 pb-16 md:pb-24">
+        {filteredProjects.map((project, index) => {
+          const matchingStudy = caseStudies.find(
+            (study) => study.slug === project.slug
+          );
+          return (
+            <ProjectRow
+              key={project.slug}
+              project={project}
+              caseStudy={matchingStudy}
+              index={index}
+              priority={index === 0}
+            />
+          );
+        })}
+      </div>
+      {showMotionSection && <MotionSection />}
+      <FinalCta className="pt-20 md:pt-32" />
+    </main>
   );
 }

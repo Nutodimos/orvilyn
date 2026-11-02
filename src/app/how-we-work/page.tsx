@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/Button";
+import { showMoneySection } from "@/data/process";
+import { ProcessHero } from "@/components/process/ProcessHero";
+import { ProcessTimeline } from "@/components/process/ProcessTimeline";
+import { Promises } from "@/components/process/Promises";
+import { MoneyNote } from "@/components/process/MoneyNote";
+import { FinalCta } from "@/components/home/FinalCta";
 
 export const metadata: Metadata = {
-  title: "How we work | Orvane",
+  title: "How we work | Orvilyn",
+  description:
+    "From first call to launch day and after: how Orvilyn works, step by step, in plain English.",
 };
 
 export default function HowWeWorkPage() {
   return (
-    <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-28">
-      <h1 className="text-[clamp(2.5rem,6vw,4.75rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--ink)] mb-4">
-        How we work
-      </h1>
-      <p className="text-[var(--muted)] text-lg mb-8">
-        This page is coming soon.
-      </p>
-      <Button href="/" variant="link">
-        Back to home
-      </Button>
-    </div>
+    <>
+      <ProcessHero />
+      <ProcessTimeline />
+      <Promises />
+      {showMoneySection && <MoneyNote />}
+      <div className="pt-20 md:pt-28">
+        <FinalCta />
+      </div>
+    </>
   );
 }

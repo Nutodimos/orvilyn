@@ -30,7 +30,7 @@ export function Services() {
               const Icon = iconMap[service.icon as keyof typeof iconMap];
               return (
                 <Reveal key={service.title} delay={idx * 0.08}>
-                  <div className="h-full bg-[var(--surface)] border border-[var(--line)] rounded-[20px] p-6 shadow-[var(--shadow-card)] flex flex-col justify-between transition-[transform,box-shadow] duration-250 ease-out hover:-translate-y-1 hover:shadow-[var(--shadow-hover)]">
+                  <div className="h-full bg-[var(--surface)] border border-[var(--line)] rounded-[20px] p-6 shadow-[var(--shadow-card)] flex flex-col justify-between transition-[transform,box-shadow] duration-160 ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[var(--shadow-hover)]">
                     <div>
                       <div className="w-11 h-11 rounded-xl bg-[var(--ink)]/[0.06] flex items-center justify-center mb-6">
                         <Icon

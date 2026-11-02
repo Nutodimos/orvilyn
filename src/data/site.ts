@@ -13,6 +13,8 @@ export interface SiteConfig {
   tagline: string;
   email: string;
   whatsapp: string;
+  bookingUrl: string;
+  whatsappMessage: string;
   socials: SocialItem[];
   nav: NavItem[];
   cta: {
@@ -22,10 +24,12 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  name: "Orvane",
+  name: "Orvilyn",
   tagline: "You’ve got a business. We’ll handle the tech.",
-  email: "hello@example.com", // TODO: replace with real business email
-  whatsapp: "", // TODO: replace; hide in footer if empty
+  email: "somidotunaina@gmail.com",
+  whatsapp: "+2348071658176", // TODO: replace; hide in footer if empty
+  bookingUrl: "", // TODO: Cal.com link for a 15-minute chat
+  whatsappMessage: "Hi Orvilyn, I found you through your website and I’d like to talk about…",
   socials: [], // array of { label, href }; hide the Social column if empty
   nav: [
     { label: "Services", href: "/services" },

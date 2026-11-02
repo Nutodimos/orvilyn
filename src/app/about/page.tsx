@@ -1,22 +1,26 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/Button";
+import { AboutHero } from "@/components/about/AboutHero";
+import { Mission } from "@/components/about/Mission";
+import { BuiltSection } from "@/components/about/BuiltSection";
+import { StudioNote } from "@/components/about/StudioNote";
+import { FinalCta } from "@/components/home/FinalCta";
 
 export const metadata: Metadata = {
-  title: "About | Orvane",
+  title: "About | Orvilyn",
+  description:
+    "Meet Somidotun, the founder of Orvilyn: an independent studio helping small and medium businesses find their footing online.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-28">
-      <h1 className="text-[clamp(2.5rem,6vw,4.75rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-[var(--ink)] mb-4">
-        About
-      </h1>
-      <p className="text-[var(--muted)] text-lg mb-8">
-        This page is coming soon.
-      </p>
-      <Button href="/" variant="link">
-        Back to home
-      </Button>
-    </div>
+    <>
+      <AboutHero />
+      <Mission />
+      <BuiltSection />
+      <StudioNote />
+      <div className="pt-16 md:pt-24">
+        <FinalCta />
+      </div>
+    </>
   );
 }

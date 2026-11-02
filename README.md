@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Orvilyn
 
-## Getting Started
+> **You’ve got a business. We’ll handle the tech.**  
+> Websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled without jargon or surprise bills.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📖 Product & Developer Documentation
+For the complete engineering manual, brand themes, UI motion standards, and architecture guide, please refer to:
+👉 **[PRODUCT_DOCUMENTATION.md](./PRODUCT_DOCUMENTATION.md)**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚡ Tech Stack Quick Summary
+- **Framework**: Next.js 16.4 (App Router, Turbopack, React 19)
+- **Styling**: Tailwind CSS v4 + Design Tokens in `src/app/globals.css`
+- **Motion**: Framer Motion 14 + Emil Kowalski motion principles
+- **Database & ORM**: PostgreSQL (Neon Serverless) + Prisma ORM 6
+- **Communications**: Resend API (Transactional Lead Ingestion & Alerts)
+- **Typography**: Plus Jakarta Sans (Headings) + DM Sans (Body)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Setup environment variables**:
+   ```bash
+   cp .env.example .env
+   ```
+   Configure `DATABASE_URL`, `DIRECT_URL`, `RESEND_API_KEY`, `LEAD_NOTIFY_EMAIL`, and `LEAD_HASH_SALT`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Generate Prisma Client & Sync DB**:
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
 
-## Deploy on Vercel
+4. **Run the local dev server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Portfolio Work & Categorization Architecture
+
+To maintain clear separation and consistent hierarchy across the portfolio:
+- **Regular Work Page (`/work` main band / `src/data/projects.ts`)**: Reserved strictly for **Software Development** projects (web applications, mobile apps, SaaS platforms, internal tools). Only software engineering builds belong in this list.
+- **Motion Work Band (`#motion` / `src/data/motion.ts`)**: Reserved for **Motion Design & Motion Identity** pieces (procedural animation, kinetic identity, brand films, such as Tidewell). Never place motion case studies in the regular software projects list; link to dedicated motion case studies directly from their tile in the motion section.
+  👉 *Motion crew export specs and handoff guidelines*: **[docs/MOTION-CREW-HANDOFF.md](./docs/MOTION-CREW-HANDOFF.md)**
+
+

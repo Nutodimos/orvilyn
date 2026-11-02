@@ -18,31 +18,37 @@ export function SelectedWork() {
 
         {/* 3 Project Cards Grid */}
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {projects.map((project, idx) => (
+          {projects.slice(0, 3).map((project, idx) => (
             <Reveal key={project.slug} delay={idx * 0.08}>
-              {/* TODO: change to /work/${project.slug} when detail pages exist */}
               <Link
-                href="/work"
-                className="group flex flex-col h-full bg-[var(--surface)] border border-[var(--line)] rounded-[20px] overflow-hidden shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-250 ease-out hover:-translate-y-1 hover:shadow-[var(--shadow-hover)]"
+                href={`/work/${project.slug}`}
+                className="group flex flex-col h-full bg-[var(--surface)] border border-[var(--line)] rounded-[20px] overflow-hidden shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-160 ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[var(--shadow-hover)] active:scale-[0.98]"
               >
                 {/* Visual Area 16:10 */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-b from-[var(--orange-tint)] to-[var(--surface)] flex items-center justify-center">
+                <div
+                  className={`relative aspect-[16/10] w-full overflow-hidden flex items-center justify-center ${
+                    project.image
+                      ? "bg-[var(--surface)]"
+                      : "bg-gradient-to-b from-[var(--orange-tint)] to-[var(--surface)]"
+                  }`}
+                >
                   {project.image ? (
                     <Image
                       src={project.image}
-                      alt={project.title}
+                      alt={project.imageAlt || project.title}
                       fill
-                      className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                      sizes="(min-width: 1024px) 380px, 100vw"
+                      className="object-cover transition-transform duration-250 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
                     />
                   ) : (
-                    <span className="font-[var(--font-display)] font-extrabold text-[6rem] text-[var(--orange)]/25 select-none transition-transform duration-300 ease-out group-hover:scale-[1.03]">
+                    <span className="font-[var(--font-display)] font-extrabold text-[6rem] text-[var(--orange)]/25 select-none transition-transform duration-250 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]">
                       {project.title.charAt(0)}
                     </span>
                   )}
-                  {project.live && (
+                  {(project.badge || project.live) && (
                     <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--surface)] border border-[var(--line)] shadow-sm text-[var(--ink)] text-[0.75rem] font-semibold select-none">
                       <span className="w-1.5 h-1.5 rounded-full bg-[var(--orange)]" />
-                      <span>Live in production</span>
+                      <span>{project.badge || "Live in production"}</span>
                     </div>
                   )}
                 </div>

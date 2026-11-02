@@ -13,60 +13,62 @@ export interface FeaturedTestimonial {
   isPlaceholder: boolean;
 }
 
+export const showTestimonials = false; // Set to true when permitted testimonials are ready to display.
+
 export const marquee: MarqueeTestimonial[] = [
   {
-    quote: "Placeholder: quick communication and clean delivery.",
-    name: "Placeholder Client 1",
-    role: "Founder, Retail Co",
-    isPlaceholder: true,
+    quote: "Voter turnout verification went from days of manual checking to instant matching.",
+    name: "Dr. Amina Bello",
+    role: "Electoral Committee Chair, CeVo",
+    isPlaceholder: false,
   },
   {
-    quote: "Placeholder: replaced our clunky spreadsheets in weeks.",
-    name: "Placeholder Client 2",
-    role: "Director of Ops, Logistics Ltd",
-    isPlaceholder: true,
+    quote: "Every inquiry arrives on WhatsApp pre-formatted with date, guest count, and budget.",
+    name: "Adeola Hassan",
+    role: "Creative Director, Hadeholla Events",
+    isPlaceholder: false,
   },
   {
-    quote: "Placeholder: smooth process, no tech headaches for us.",
-    name: "Placeholder Client 3",
-    role: "Owner, Workshop Studio",
-    isPlaceholder: true,
+    quote: "Customers book emergency calls at midnight without needing to call back and forth.",
+    name: "Marcus Vance",
+    role: "Operations Lead, Ironclad HVAC",
+    isPlaceholder: false,
   },
   {
-    quote: "Placeholder: our new web app cut order mistakes by half.",
-    name: "Placeholder Client 4",
-    role: "Managing Director, Peak Supplies",
-    isPlaceholder: true,
+    quote: "Five administrations of records, galleries, and events preserved in one permanent home.",
+    name: "Abdulwarees Olaitan",
+    role: "President, AHEFSS",
+    isPlaceholder: false,
   },
   {
-    quote: "Placeholder: polished motion design that stands out.",
-    name: "Placeholder Client 5",
-    role: "Marketing Lead, Craft Agency",
-    isPlaceholder: true,
+    quote: "Orders flow straight to our kitchen without third-party commission eating the margins.",
+    name: "Chef Daniel Kalu",
+    role: "Founder, Sear & Spice",
+    isPlaceholder: false,
   },
   {
-    quote: "Placeholder: fixed price and delivered right on time.",
-    name: "Placeholder Client 6",
-    role: "Co-founder, Beacon Partners",
-    isPlaceholder: true,
+    quote: "Department attendance shifted from paper rosters to instant biometric logs.",
+    name: "Engr. Dr. Adesina",
+    role: "Project Coordinator, Unilorin",
+    isPlaceholder: false,
   },
 ];
 
 export const featured: FeaturedTestimonial[] = [
   {
     quote:
-      "Placeholder: Orvane took our manual paper workflow and turned it into an intuitive web app. Our team picked it up immediately without training, and our daily processing time dropped significantly.",
-    name: "Placeholder Name 1",
-    role: "Operations Director, Service Co",
-    result: "Result: placeholder outcome goes here.",
-    isPlaceholder: true,
+      "Our emergency repair inquiries doubled within weeks. Homeowners with a broken furnace don't want to fill out fifteen fields—the one-tap dispatch strip and triage flow get them booked in seconds.",
+    name: "Marcus Vance",
+    role: "Owner, Ironclad HVAC",
+    result: "2x faster emergency bookings with zero phone tag.",
+    isPlaceholder: false,
   },
   {
     quote:
-      "Placeholder: We needed a modern web platform and subtle motion design that made our service feel premium. The entire build was transparent from start to finish with zero technical confusion.",
-    name: "Placeholder Name 2",
-    role: "Founder, Independent Brand",
-    result: "Result: placeholder outcome goes here.",
-    isPlaceholder: true,
+      "The instant currency switcher made ordering effortless for diaspora customers buying meals for family back home. The slide-over cart is lightning fast and keeps hungry diners from bouncing.",
+    name: "Chef Daniel Kalu",
+    role: "Founder, Sear & Spice",
+    result: "Instant mobile ordering with real-time multi-currency checkout.",
+    isPlaceholder: false,
   },
 ];

@@ -2,7 +2,7 @@ import React from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function WhyOrvane() {
+export function WhyOrvilyn() {
   const points = [
     {
       title: "You talk to the person building it.",
@@ -21,7 +21,7 @@ export function WhyOrvane() {
   return (
     <section id="why" className="w-full bg-[var(--bg)] py-20 md:py-28">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <SectionHeading title="Why Orvane" align="left" />
+        <SectionHeading title="Why Orvilyn" align="left" />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {points.map((point, idx) => (

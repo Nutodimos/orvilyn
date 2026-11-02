@@ -46,11 +46,6 @@ export function Testimonials() {
                     </h3>
                     <p className="text-sm text-[var(--muted)]">{item.role}</p>
                   </div>
-                  {item.isPlaceholder && (
-                    <span className="px-2 py-0.5 text-[0.75rem] font-medium text-[var(--muted)] border border-[var(--line)] rounded-full bg-[var(--surface)] shrink-0">
-                      Placeholder
-                    </span>
-                  )}
                 </div>
               </div>
             </Reveal>

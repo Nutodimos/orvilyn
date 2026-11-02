@@ -24,18 +24,18 @@ export function Footer() {
             <Link
               href="/"
               className="inline-flex items-center gap-2 mb-3"
-              aria-label="Orvane home"
+              aria-label="Orvilyn home"
             >
               {/* Logo mark from brand assets; TODO: Replace with full logo.svg when provided */}
               <Image
                 src="/brand/logo-mark.png"
-                alt="Orvane logo"
+                alt="Orvilyn logo"
                 width={28}
                 height={28}
                 className="h-7 w-auto object-contain"
               />
               <span className="font-[var(--font-display)] font-extrabold text-lg tracking-tight text-[var(--ink)]">
-                Orvane
+                Orvilyn
               </span>
             </Link>
             <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed">
@@ -70,18 +70,29 @@ export function Footer() {
                 Contact
               </h3>
               <ul className="flex flex-col gap-2.5">
-                <li>
-                  <a
-                    href={`mailto:${site.email}`}
-                    className="text-sm text-[var(--muted)] hover:text-[var(--orange-strong)] transition-colors duration-200"
-                  >
-                    {site.email}
-                  </a>
-                </li>
+                {site.email && site.email !== "hello@example.com" ? (
+                  <li>
+                    <a
+                      href={`mailto:${site.email}`}
+                      className="text-sm text-[var(--muted)] hover:text-[var(--orange-strong)] transition-colors duration-200"
+                    >
+                      {site.email}
+                    </a>
+                  </li>
+                ) : (
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="text-sm text-[var(--muted)] hover:text-[var(--orange-strong)] transition-colors duration-200"
+                    >
+                      Get in touch
+                    </Link>
+                  </li>
+                )}
                 {site.whatsapp ? (
                   <li>
                     <a
-                      href={`https://wa.me/${site.whatsapp}`}
+                      href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-[var(--muted)] hover:text-[var(--orange-strong)] transition-colors duration-200"
@@ -121,7 +132,7 @@ export function Footer() {
         {/* Bottom row */}
         <div className="mt-12 pt-8 border-t border-[var(--line)]">
           <p className="text-sm text-[var(--muted)]">
-            © {currentYear} Orvane. All rights reserved.
+            © {currentYear} Orvilyn. All rights reserved.
           </p>
         </div>
       </div>

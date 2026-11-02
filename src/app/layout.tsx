@@ -19,13 +19,14 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Orvane | Websites, apps, and tools for your business",
+  metadataBase: new URL("https://orvilyn.com"),
+  title: "Orvilyn | Websites, apps, and tools for your business",
   description:
-    "Orvane builds websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled.",
+    "Orvilyn builds websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled.",
   openGraph: {
-    title: "Orvane | Websites, apps, and tools for your business",
+    title: "Orvilyn | Websites, apps, and tools for your business",
     description:
-      "Orvane builds websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled.",
+      "Orvilyn builds websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled.",
   },
 };
 

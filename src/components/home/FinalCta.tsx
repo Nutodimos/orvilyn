@@ -4,9 +4,13 @@ import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function FinalCta() {
+interface FinalCtaProps {
+  className?: string;
+}
+
+export function FinalCta({ className = "" }: FinalCtaProps = {}) {
   return (
-    <section className="w-full bg-[var(--bg)] pb-20 md:pb-28">
+    <section className={`w-full bg-[var(--bg)] pb-20 md:pb-28 ${className}`}>
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <Reveal>
           <div className="relative overflow-hidden rounded-[28px] bg-[var(--orange)] text-[var(--on-orange)] p-10 md:p-16 text-center shadow-[var(--shadow-card)]">
