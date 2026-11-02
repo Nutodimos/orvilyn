@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ServicesHero } from "@/components/services/ServicesHero";
 import { ServiceRow } from "@/components/services/ServiceRow";
+import { TimelineNote } from "@/components/services/TimelineNote";
 import { ScopeStatement } from "@/components/services/ScopeStatement";
 import { Faq } from "@/components/services/Faq";
 import { MoveBand } from "@/components/home/MoveBand";
@@ -20,6 +21,7 @@ export default function ServicesPage() {
       {buildServices.map((service) => (
         <ServiceRow key={service.id} item={service} />
       ))}
+      <TimelineNote />
       <div id="motion" className="scroll-mt-24">
         <MoveBand />
       </div>

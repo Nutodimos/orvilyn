@@ -28,9 +28,8 @@ export const buildServices: BuildServiceItem[] = [
       "Call, book, or order buttons that actually work",
       "Help at launch, and support after",
     ],
-    // TODO: placeholder estimates, confirm before setting timelineConfirmed to true.
     timeline: "Usually 2 to 4 weeks",
-    timelineConfirmed: false,
+    timelineConfirmed: true,
   },
   {
     id: "web-apps",
@@ -46,9 +45,8 @@ export const buildServices: BuildServiceItem[] = [
       "The features your customers actually use, nothing they don’t",
       "Built so it can grow with you",
     ],
-    // TODO: placeholder estimates, confirm before setting timelineConfirmed to true.
     timeline: "Usually 6 to 12 weeks",
-    timelineConfirmed: false,
+    timelineConfirmed: true,
   },
   {
     id: "internal-tools",
@@ -65,9 +63,8 @@ export const buildServices: BuildServiceItem[] = [
       "Reports you can export when someone asks",
       "So simple nobody needs a manual. If they do, we got it wrong.",
     ],
-    // TODO: placeholder estimates, confirm before setting timelineConfirmed to true.
     timeline: "Usually 4 to 10 weeks",
-    timelineConfirmed: false,
+    timelineConfirmed: true,
   },
   {
     id: "mobile-apps",
@@ -83,8 +80,7 @@ export const buildServices: BuildServiceItem[] = [
       "Connected to the same accounts and data as your website or web app",
       "Help with launch, and support after",
     ],
-    // TODO: placeholder estimates, confirm before setting timelineConfirmed to true.
     timeline: "Usually 8 to 16 weeks",
-    timelineConfirmed: false,
+    timelineConfirmed: true,
   },
 ];

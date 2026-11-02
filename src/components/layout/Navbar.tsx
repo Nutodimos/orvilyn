@@ -36,8 +36,10 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 h-[72px] w-full transition-[border-color,background-color] duration-200 bg-[var(--bg)]/85 backdrop-blur-md ${
-          isScrolled ? "border-b border-[var(--line)]" : "border-b border-transparent"
+        className={`sticky top-0 z-50 h-[72px] w-full transition-[border-color,background-color,box-shadow] duration-200 bg-[var(--bg)]/90 backdrop-blur-md ${
+          isScrolled
+            ? "border-b border-[var(--line)] shadow-[0_2px_12px_rgba(31,27,22,0.04)]"
+            : "border-b border-transparent"
         }`}
       >
         <div className="max-w-[1200px] mx-auto h-full px-5 md:px-8 flex items-center justify-between">

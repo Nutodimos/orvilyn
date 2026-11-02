@@ -5,4 +5,4 @@ export const credentials = [
   "Sophos Certified Engineer",
   "Information security background",
 ]; // TODO: confirm every item before launch.
-export const showContinuityNote = false; // TODO: set to true only when you will stand behind both: documentation with every project, and the client owning the code.
+export const showContinuityNote = true;

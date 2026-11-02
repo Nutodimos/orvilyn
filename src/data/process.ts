@@ -13,7 +13,7 @@ export interface PromiseItem {
   text: string;
 }
 
-export const showMoneySection = false; // TODO: set to true only after payment terms are decided and the MoneyNote copy is confirmed.
+export const showMoneySection = true;
 
 export const processSteps: ProcessStep[] = [
   {
