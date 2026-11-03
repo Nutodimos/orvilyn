@@ -7,8 +7,16 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const logoPath = join(process.cwd(), "public", "brand", "logo-mark.png");
-  const logoBuffer = await readFile(logoPath);
+  const [logoBuffer, fontJakartaBuffer, fontDmBuffer] = await Promise.all([
+    readFile(join(process.cwd(), "public", "brand", "logo-mark.png")),
+    readFile(
+      join(process.cwd(), "src", "assets", "fonts", "PlusJakartaSans-Bold.woff")
+    ),
+    readFile(
+      join(process.cwd(), "src", "assets", "fonts", "DMSans-Medium.woff")
+    ),
+  ]);
+
   const logoBase64 = `data:image/png;base64,${logoBuffer.toString("base64")}`;
 
   return new ImageResponse(
@@ -20,9 +28,10 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#FF6A13",
-          padding: "64px 72px",
+          backgroundColor: "#FFFAF3",
+          padding: "72px 80px",
           color: "#1F1B16",
+          fontFamily: "DM Sans",
         }}
       >
         {/* Top-left brand mark and name */}
@@ -30,26 +39,27 @@ export default async function Image() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "16px",
+            gap: "18px",
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={logoBase64}
             alt="Orvilyn Logo"
-            width="56"
-            height="56"
+            width="64"
+            height="64"
             style={{
-              width: "56px",
-              height: "56px",
+              width: "64px",
+              height: "64px",
             }}
           />
           <span
             style={{
-              fontSize: "36px",
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
+              fontSize: "38px",
+              fontWeight: 700,
+              letterSpacing: "-0.025em",
               color: "#1F1B16",
+              fontFamily: "Plus Jakarta Sans",
             }}
           >
             Orvilyn
@@ -65,11 +75,12 @@ export default async function Image() {
         >
           <div
             style={{
-              fontSize: "64px",
-              fontWeight: 800,
+              fontSize: "66px",
+              fontWeight: 700,
               lineHeight: 1.15,
-              letterSpacing: "-0.03em",
+              letterSpacing: "-0.035em",
               color: "#1F1B16",
+              fontFamily: "Plus Jakarta Sans",
               maxWidth: "1020px",
             }}
           >
@@ -81,10 +92,11 @@ export default async function Image() {
         <div
           style={{
             display: "flex",
-            fontSize: "24px",
+            fontSize: "26px",
             fontWeight: 500,
-            lineHeight: 1.4,
-            color: "#1F1B16",
+            lineHeight: 1.45,
+            color: "#6B645B",
+            fontFamily: "DM Sans",
             maxWidth: "960px",
           }}
         >
@@ -94,6 +106,20 @@ export default async function Image() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: "Plus Jakarta Sans",
+          data: fontJakartaBuffer,
+          style: "normal",
+          weight: 700,
+        },
+        {
+          name: "DM Sans",
+          data: fontDmBuffer,
+          style: "normal",
+          weight: 500,
+        },
+      ],
     }
   );
 }
