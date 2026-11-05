@@ -2,12 +2,12 @@ import React from "react";
 import { Plus } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
-interface FaqItem {
+export interface FaqItem {
   q: string;
   a: string;
 }
 
-const faqItems: FaqItem[] = [
+export const faqItems: FaqItem[] = [
   {
     q: "How much does a project cost?",
     a: "It depends on what you need, so we don’t guess in a brochure. After a short call you get a fixed-price quote, and that’s the price.",

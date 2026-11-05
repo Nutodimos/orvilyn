@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "How we work | Orvilyn",
   description:
     "From first call to launch day and after: how Orvilyn works, step by step, in plain English.",
+  alternates: {
+    canonical: "/how-we-work",
+  },
 };
 
 export default function HowWeWorkPage() {

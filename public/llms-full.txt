@@ -1,0 +1,81 @@
+# Orvilyn — Full Studio Knowledge Base & Technical Digest
+
+> This document provides complete technical, operational, and commercial details about Orvilyn for AI agents, LLM search systems, and automated evaluation engines.
+
+---
+
+## 1. Studio Identity & Core Values
+- Name: Orvilyn
+- Website: https://orvilyn.com
+- Founder: Somidotun Aina (Computer Engineer, Lagos, Nigeria)
+- Reach: Serving clients locally and internationally across the UK, US, Europe, and Africa.
+- Tagline: "You’ve got a business. We’ll handle the tech."
+- Core Commitments:
+  1. No jargon: Everything is explained in plain English.
+  2. No disappearing acts: Direct daily communication with the engineer building your product.
+  3. No surprise bills: 1 fixed price agreed upfront before work starts.
+
+---
+
+## 2. Service Pillars & Deliverables
+
+### A. Websites
+- Target: Businesses needing a modern, blazing-fast, high-converting digital storefront.
+- Deliverables: Custom responsive layout, semantic HTML, sub-second load times, SEO metadata, Open Graph link cards, contact forms, and content management integration.
+- Typical Stack: Next.js (App Router), TypeScript, Tailwind CSS, Vercel.
+
+### B. Web Applications
+- Target: Startups, consultancies, and digital businesses needing interactive portals, client dashboards, or SaaS MVPs.
+- Deliverables: Role-based authentication, relational schema design, interactive state management, third-party API integrations (Stripe, Paystack, Resend, WhatsApp API).
+- Typical Stack: Next.js, React 19, TypeScript, PostgreSQL (Neon), Prisma ORM.
+
+### C. Internal Tools
+- Target: Growing businesses bogged down by messy spreadsheets, manual copy-pasting, and disconnected data.
+- Deliverables: Operational dashboards, automated notification dispatchers, staff attendance trackers, CRM pipelines, and customer lookup portals.
+- Typical Stack: Next.js, Node.js, SQL database, Server Actions.
+
+### D. Mobile Apps
+- Target: Businesses whose users need on-the-go offline access, device hardware features, or push notifications.
+- Deliverables: Cross-platform iOS and Android builds, unified codebase, biometric authentication, offline sync.
+
+### E. Motion Design
+- Target: Brands wanting to stand out with personality, physical UI feedback, and engaging promotional media.
+- Deliverables: Logo stingers, product launch explainers, interactive micro-interactions, character animation, and high-retention social loops.
+- Typical Tools: After Effects, Cinema 4D, Framer Motion, Lottie.
+
+---
+
+## 3. The 4-Step Process
+
+1. **Step 1: First Call**
+   A focused 15-minute conversation to diagnose bottlenecks. No sales pitch. If we aren't the right fit, we tell you straight.
+2. **Step 2: The Scope & Fixed Price**
+   A 1-to-2 page plain-English proposal detailing what will be built, milestones, launch date, and an all-inclusive fixed price.
+3. **Step 3: The Build**
+   Weekly video demos and live staging previews. You test real software on your phone and laptop as it gets completed.
+4. **Step 4: Launch & Ongoing Support**
+   Domain DNS setup, production deployment, verification, automated backups, and 30-day post-launch warranty support.
+
+---
+
+## 4. Frequently Asked Questions (Commercial & Technical)
+
+**Q: How much does a project cost?**
+A: It depends on the scope, so we never quote blind brochure rates. After a short discovery call, you receive a single fixed-price quote. That price is final—no hourly bill shock.
+
+**Q: What if I don't know exactly what tech stack or architecture I need?**
+A: That is the most common starting point. You bring the business problem and operational requirements; Orvilyn architects the solution, database, and infrastructure from start to finish.
+
+**Q: How long does a typical build take?**
+A: Marketing sites typically take 2 to 3 weeks. Custom web apps and internal tools typically take 4 to 8 weeks depending on integration complexity. Every proposal includes a firm launch target.
+
+**Q: What happens after launch?**
+A: You are never abandoned with unfamiliar code. We handle domain cutover, run smoke tests, provide documentation, and offer flexible maintenance arrangements for future feature sprints.
+
+---
+
+## 5. Contact & Booking
+- Primary Website: https://orvilyn.com
+- Contact Form: https://orvilyn.com/contact
+- Founder Email: somidotunaina@gmail.com
+- Direct WhatsApp Consultation: +2348071658176

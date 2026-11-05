@@ -24,10 +24,13 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://orvilyn.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://orvilyn.com"
   ),
   title,
   description,
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     title,
     description,
@@ -40,6 +43,47 @@ export const metadata: Metadata = {
     title,
     description,
   },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      }
+    : undefined,
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Orvilyn",
+  url: "https://orvilyn.com",
+  logo: "https://orvilyn.com/brand/logo-mark.png",
+  image: "https://orvilyn.com/opengraph-image",
+  description,
+  founder: {
+    "@type": "Person",
+    name: "Somidotun Aina",
+    jobTitle: "Founder & Lead Engineer",
+  },
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lagos",
+    addressCountry: "NG",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    email: "somidotunaina@gmail.com",
+  },
+  knowsAbout: [
+    "Web Development",
+    "Web Applications",
+    "Internal Tools",
+    "Mobile Applications",
+    "Motion Design",
+    "Next.js",
+    "React",
+    "TypeScript",
+  ],
 };
 
 export default function RootLayout({
@@ -52,6 +96,12 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakartaSans.variable} ${dmSans.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen bg-[var(--bg)] text-[var(--ink)] antialiased font-[var(--font-body)] flex flex-col">
         {/* Skip to content accessible link */}
         <a

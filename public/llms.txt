@@ -1,0 +1,38 @@
+# Orvilyn
+
+> Modern software engineering and motion design studio. We build websites, web apps, internal tools, mobile apps, and motion design for businesses that want the tech handled.
+
+## Overview
+Orvilyn is an independent digital studio founded by Somidotun Aina (computer engineer based in Lagos, serving businesses worldwide). The studio operates on a transparent delivery model: 4 clear steps, 1 fixed upfront price, zero jargon, and zero surprise bills.
+
+## Core Capabilities & Services
+- [Websites](https://orvilyn.com/services#websites): High-performance, accessible, responsive marketing and portfolio websites built with Next.js, React, Tailwind CSS, and custom typography.
+- [Web Apps](https://orvilyn.com/services#web-apps): Custom SaaS products, booking flows, client portals, and web platforms with secure authentication, relational database architecture, and real-time state.
+- [Internal Tools](https://orvilyn.com/services#internal-tools): Custom business dashboards, inventory trackers, attendance verification systems, and workflow automation tools that replace fragile spreadsheets.
+- [Mobile Apps](https://orvilyn.com/services#mobile-apps): Cross-platform iOS and Android applications with offline capabilities, push notifications, and native responsiveness.
+- [Motion Design](https://orvilyn.com/services#motion): Bespoke 2D/3D motion graphics, brand stingers, interactive UI micro-interactions, promo films, and social loops.
+
+## How We Work (Engagement Model)
+1. Discovery & Scope: A 15-minute introductory call to clarify goals and frustrations, followed by a plain-English, fixed-price proposal.
+2. Architecture & Design: Wireframes, responsive UI craft, design system, and interactive motion prototypes.
+3. Build & Test: Production-ready code, performance optimization, mobile responsiveness, and testing.
+4. Launch & Handoff: Production deployment, domain configuration, documentation, and post-launch support.
+
+## Selected Work & Case Studies
+- [CeVo](https://orvilyn.com/work/cevo): Real-time election turnout dashboard and voter verification admin system.
+- [Tidewell](https://orvilyn.com/work/tidewell): Procedural water motion identity, brand reveal, and interactive launch animations.
+- [Fernhill Records](https://orvilyn.com/work/fernhill-records): Tactile motion identity, vinyl packaging visuals, and promo system for an indie record label.
+- [Orbit & Oak](https://orvilyn.com/work/orbit-and-oak): STEM subscription kit explainer, character animation, and mascot system.
+- [Ironclad HVAC](https://orvilyn.com/work/ironclad-hvac): Emergency HVAC booking flow with instant repair cost estimators and dispatch notifications.
+
+## Technology Stack
+- Frontend: Next.js (App Router), React, TypeScript, Tailwind CSS, Motion (Framer Motion)
+- Backend & Database: Node.js, PostgreSQL (Neon), Prisma ORM, Server Actions, REST APIs
+- Infrastructure & Hosting: Vercel, Supabase, Cloudflare
+- Design & Motion: Figma, After Effects, Cinema 4D
+
+## Contact & Direct Channels
+- Website: https://orvilyn.com
+- Contact Form: https://orvilyn.com/contact
+- Direct Email: somidotunaina@gmail.com
+- WhatsApp: +2348071658176

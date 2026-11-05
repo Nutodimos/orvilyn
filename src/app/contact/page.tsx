@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contact | Orvilyn",
   description:
     "Tell us what’s annoying you. Reach Orvilyn by form, WhatsApp, or a quick booked call.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

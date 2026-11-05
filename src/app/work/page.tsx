@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Work | Orvilyn",
   description:
     "Selected projects from Somidotun and Orvilyn: what was built, the problem it solved, and what happened next.",
+  alternates: {
+    canonical: "/work",
+  },
 };
 
 export default function WorkPage() {

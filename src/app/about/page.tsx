@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "About | Orvilyn",
   description:
     "Meet Somidotun, the founder of Orvilyn: an independent studio helping small and medium businesses find their footing online.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

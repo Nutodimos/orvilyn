@@ -32,9 +32,35 @@ export async function generateMetadata({
     };
   }
 
+  const ogImages = project.image
+    ? [
+        {
+          url: project.image,
+          alt: project.imageAlt || project.title,
+        },
+      ]
+    : undefined;
+
   return {
-    title: `${project.title} | Orvilyn`,
+    title: `${project.title} — Case Study | Orvilyn`,
     description: caseStudy.summary,
+    alternates: {
+      canonical: `/work/${slug}`,
+    },
+    openGraph: {
+      title: `${project.title} — Case Study | Orvilyn`,
+      description: caseStudy.summary,
+      url: `/work/${slug}`,
+      siteName: "Orvilyn",
+      images: ogImages,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Case Study | Orvilyn`,
+      description: caseStudy.summary,
+      images: project.image ? [project.image] : undefined,
+    },
   };
 }
 
@@ -47,8 +73,32 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound();
   }
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    headline: `${project.title} — Case Study`,
+    description: caseStudy.summary,
+    url: `https://orvilyn.com/work/${slug}`,
+    image: project.image ? `https://orvilyn.com${project.image}` : undefined,
+    author: {
+      "@type": "Person",
+      name: "Somidotun Aina",
+    },
+    creator: {
+      "@type": "Organization",
+      name: "Orvilyn",
+      url: "https://orvilyn.com",
+    },
+    keywords: project.tags,
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <CaseHero project={project} caseStudy={caseStudy} />
       <CaseBody caseStudy={caseStudy} />
       <NextProject currentSlug={slug} />

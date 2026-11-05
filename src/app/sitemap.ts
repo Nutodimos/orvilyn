@@ -3,7 +3,7 @@ import { projects } from "@/data/projects";
 import { motionPieces, showMotionSection } from "@/data/motion";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://orvilyn.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://orvilyn.com";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
