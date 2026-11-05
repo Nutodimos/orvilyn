@@ -26,7 +26,7 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   name: "Orvilyn",
   tagline: "You’ve got a business. We’ll handle the tech.",
-  email: "somidotunaina@gmail.com",
+  email: "hello@orvilyn.com",
   whatsapp: "+2348071658176", // TODO: replace; hide in footer if empty
   bookingUrl: "", // TODO: Cal.com link for a 15-minute chat
   whatsappMessage: "Hi Orvilyn, I found you through your website and I’d like to talk about…",
