@@ -30,7 +30,16 @@ export const site: SiteConfig = {
   whatsapp: "+2348071658176", // TODO: replace; hide in footer if empty
   bookingUrl: "", // TODO: Cal.com link for a 15-minute chat
   whatsappMessage: "Hi Orvilyn, I found you through your website and I’d like to talk about…",
-  socials: [], // array of { label, href }; hide the Social column if empty
+  socials: [
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/orvilyn",
+    },
+    {
+      label: "TikTok",
+      href: "https://www.tiktok.com/@orvilyn5",
+    },
+  ],
   nav: [
     { label: "Services", href: "/services" },
     { label: "Work", href: "/work" },

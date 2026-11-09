@@ -58,6 +58,10 @@ const jsonLd = {
   logo: "https://orvilyn.com/brand/logo-mark.png",
   image: "https://orvilyn.com/opengraph-image",
   description,
+  sameAs: [
+    "https://www.linkedin.com/company/orvilyn",
+    "https://www.tiktok.com/@orvilyn5",
+  ],
   founder: {
     "@type": "Person",
     name: "Somidotun Aina",
