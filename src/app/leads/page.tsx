@@ -56,6 +56,16 @@ async function LeadsContent({ searchParams }: LeadsPageProps) {
     message: l.message,
     interests: l.interests,
     status: l.status,
+    service: l.service,
+    budgetRange: l.budgetRange,
+    contactMethod: l.contactMethod,
+    whatsapp: l.whatsapp,
+    region: l.region,
+    utmSource: l.utmSource,
+    utmMedium: l.utmMedium,
+    utmCampaign: l.utmCampaign,
+    landingPage: l.landingPage,
+    referrer: l.referrer,
   }));
 
   return <LeadsDashboard leads={serializedLeads} />;

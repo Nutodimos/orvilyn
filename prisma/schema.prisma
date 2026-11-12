@@ -8,15 +8,29 @@ datasource db {
 }
 
 model Lead {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  name      String
-  email     String
-  phone     String?
-  message   String
-  interests String[]
-  status    String   @default("new")
-  ipHash    String?
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  name          String
+  email         String?
+  phone         String?
+  message       String
+  interests     String[]
+  service       String?
+  budgetRange   String?
+  contactMethod String   @default("email")
+  whatsapp      String?
+  region        String?
+  utmSource     String?
+  utmMedium     String?
+  utmCampaign   String?
+  utmContent    String?
+  utmTerm       String?
+  fbclid        String?
+  gclid         String?
+  landingPage   String?
+  referrer      String?
+  status        String   @default("new")
+  ipHash        String?
 
   @@index([ipHash, createdAt])
 }

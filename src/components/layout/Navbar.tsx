@@ -29,7 +29,7 @@ function getScrollServerSnapshot() {
   return false;
 }
 
-const DEMO_ROUTES = ["/demo/sharp", "/chair", "/sharp"];
+const NO_NAV_ROUTES = ["/demo/sharp", "/chair", "/sharp"];
 
 export function Navbar() {
   const pathname = usePathname();
@@ -41,7 +41,7 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   if (
-    DEMO_ROUTES.some(
+    NO_NAV_ROUTES.some(
       (route) => pathname === route || pathname.startsWith(`${route}/`)
     )
   ) {

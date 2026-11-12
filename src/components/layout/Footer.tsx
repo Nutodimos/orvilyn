@@ -6,14 +6,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { site } from "@/data/site";
 
-const DEMO_ROUTES = ["/demo/sharp", "/chair", "/sharp"];
+const NO_FOOTER_ROUTES = ["/demo/sharp", "/chair", "/sharp"];
 
 export function Footer() {
   const pathname = usePathname();
   const currentYear = 2026;
 
   if (
-    DEMO_ROUTES.some(
+    NO_FOOTER_ROUTES.some(
       (route) => pathname === route || pathname.startsWith(`${route}/`)
     )
   ) {

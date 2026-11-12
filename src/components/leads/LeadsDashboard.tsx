@@ -24,11 +24,21 @@ export interface SerializedLead {
   id: string;
   createdAt: string; // ISO string
   name: string;
-  email: string;
+  email: string | null;
   phone: string | null;
   message: string;
   interests: string[];
   status: string;
+  service?: string | null;
+  budgetRange?: string | null;
+  contactMethod?: string | null;
+  whatsapp?: string | null;
+  region?: string | null;
+  utmSource?: string | null;
+  utmMedium?: string | null;
+  utmCampaign?: string | null;
+  landingPage?: string | null;
+  referrer?: string | null;
 }
 
 interface LeadsDashboardProps {
@@ -102,11 +112,12 @@ export function LeadsDashboard({ leads: initialLeads }: LeadsDashboardProps) {
       if (!searchTerm.trim()) return true;
       const term = searchTerm.toLowerCase();
       const inName = lead.name.toLowerCase().includes(term);
-      const inEmail = lead.email.toLowerCase().includes(term);
+      const inEmail = lead.email ? lead.email.toLowerCase().includes(term) : false;
       const inPhone = lead.phone ? lead.phone.toLowerCase().includes(term) : false;
+      const inWhatsapp = lead.whatsapp ? lead.whatsapp.toLowerCase().includes(term) : false;
       const inMessage = lead.message.toLowerCase().includes(term);
       const inInterests = lead.interests.some((i) => i.toLowerCase().includes(term));
-      return inName || inEmail || inPhone || inMessage || inInterests;
+      return inName || inEmail || inPhone || inWhatsapp || inMessage || inInterests;
     });
   }, [optimisticLeads, statusFilter, searchTerm]);
 
@@ -147,14 +158,35 @@ export function LeadsDashboard({ leads: initialLeads }: LeadsDashboardProps) {
   const handleExportCSV = () => {
     if (optimisticLeads.length === 0) return;
 
-    const headers = ["ID", "Date", "Status", "Name", "Email", "Phone", "Interests", "Message"];
+    const headers = [
+      "ID",
+      "Date",
+      "Status",
+      "Name",
+      "Contact Method",
+      "Email",
+      "WhatsApp",
+      "Phone",
+      "Service",
+      "Budget",
+      "Region",
+      "Campaign",
+      "Interests",
+      "Message",
+    ];
     const rows = optimisticLeads.map((l) => [
       l.id,
       `"${new Date(l.createdAt).toISOString()}"`,
       `"${l.status}"`,
       `"${l.name.replace(/"/g, '""')}"`,
-      `"${l.email.replace(/"/g, '""')}"`,
+      `"${l.contactMethod || "email"}"`,
+      `"${(l.email || "").replace(/"/g, '""')}"`,
+      `"${(l.whatsapp || "").replace(/"/g, '""')}"`,
       `"${(l.phone || "").replace(/"/g, '""')}"`,
+      `"${(l.service || "").replace(/"/g, '""')}"`,
+      `"${(l.budgetRange || "").replace(/"/g, '""')}"`,
+      `"${(l.region || "").replace(/"/g, '""')}"`,
+      `"${(l.utmCampaign || "").replace(/"/g, '""')}"`,
       `"${l.interests.join(", ").replace(/"/g, '""')}"`,
       `"${l.message.replace(/"/g, '""')}"`,
     ]);
@@ -468,26 +500,32 @@ export function LeadsDashboard({ leads: initialLeads }: LeadsDashboardProps) {
 
                 {/* Contact Coordinates */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-4 text-sm">
-                  {/* Email */}
+                  {/* Email or WhatsApp */}
                   <div className="flex items-center justify-between gap-2 p-3 bg-[var(--bg)] rounded-xl border border-[var(--line)]/60">
                     <div className="flex items-center gap-2.5 min-w-0">
                       <Mail size={16} className="text-[var(--orange-strong)] shrink-0" />
-                      <a
-                        href={`mailto:${lead.email}`}
-                        className="font-medium text-[var(--ink)] hover:text-[var(--orange-strong)] truncate transition-colors duration-150"
-                      >
-                        {lead.email}
-                      </a>
+                      {lead.email ? (
+                        <a
+                          href={`mailto:${lead.email}`}
+                          className="font-medium text-[var(--ink)] hover:text-[var(--orange-strong)] truncate transition-colors duration-150"
+                        >
+                          {lead.email}
+                        </a>
+                      ) : (
+                        <span className="text-[var(--muted)] text-xs italic">No email provided</span>
+                      )}
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => handleCopy(lead.email, `email-${lead.id}`)}
-                      title="Copy email"
-                      className="p-1 rounded-md text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--surface)] transition-colors duration-150 shrink-0"
-                      aria-label="Copy email"
-                    >
-                      {emailCopied ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
-                    </button>
+                    {lead.email && (
+                      <button
+                        type="button"
+                        onClick={() => handleCopy(lead.email || "", `email-${lead.id}`)}
+                        title="Copy email"
+                        className="p-1 rounded-md text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--surface)] transition-colors duration-150 shrink-0"
+                        aria-label="Copy email"
+                      >
+                        {emailCopied ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
+                      </button>
+                    )}
                   </div>
 
                   {/* Phone */}
