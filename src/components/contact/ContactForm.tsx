@@ -2,6 +2,7 @@
 
 import React, { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
+import { useSearchParams } from "next/navigation";
 import { AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react";
 import { site } from "@/data/site";
 import { INTERESTS } from "@/lib/validateLead";
@@ -31,10 +32,19 @@ function SubmitButton() {
 }
 
 export function ContactForm() {
+  const searchParams = useSearchParams();
   const [state, formAction] = useActionState(submitLead, initialContactState);
   const [startedAt, setStartedAt] = useState<number | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
+
+  const prefillMessage = searchParams.get("message") ?? "";
+  const prefillInterest = searchParams.get("interest") ?? "";
+  const validPrefillInterests = (INTERESTS as readonly string[]).includes(
+    prefillInterest
+  )
+    ? [prefillInterest]
+    : [];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -97,9 +107,13 @@ export function ContactForm() {
     );
   }
 
+  const resolvedMessage = state.values?.message ?? prefillMessage;
+  const resolvedInterests =
+    state.values?.interests ?? validPrefillInterests;
+
   const formKey = state.values
     ? `${state.values.name}-${state.values.email}-${state.values.phone}-${state.values.message}-${state.values.interests.join(",")}`
-    : "initial";
+    : `initial-${prefillMessage}-${prefillInterest}`;
 
   return (
     <div className="bg-[var(--surface)] border border-[var(--line)] rounded-[28px] p-6 md:p-10 shadow-[var(--shadow-card)]">
@@ -219,7 +233,7 @@ export function ContactForm() {
             name="message"
             rows={5}
             placeholder="The spreadsheet nobody trusts, the website that never gets calls, the thing you do by hand every Friday…"
-            defaultValue={state.values?.message ?? ""}
+            defaultValue={resolvedMessage}
             aria-invalid={Boolean(state.fieldErrors?.message)}
             aria-describedby={
               state.fieldErrors?.message ? "message-error" : undefined
@@ -263,7 +277,7 @@ export function ContactForm() {
                   type="checkbox"
                   name="interests"
                   value={item}
-                  defaultChecked={state.values?.interests?.includes(item)}
+                  defaultChecked={resolvedInterests.includes(item)}
                   className="peer sr-only"
                 />
                 <span className="rounded-full px-4 py-2 font-semibold text-[0.9rem] border border-[var(--line)] bg-[var(--surface)] text-[var(--ink)] transition-colors peer-checked:bg-[var(--ink)] peer-checked:text-[var(--bg)] peer-checked:border-[var(--ink)] peer-focus-visible:outline-2 peer-focus-visible:outline-[var(--orange)] peer-focus-visible:outline-offset-2">

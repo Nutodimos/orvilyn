@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import { ContactHero } from "@/components/contact/ContactHero";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -25,7 +26,9 @@ export default function ContactPage() {
           {doors.length > 0 ? (
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
               <div className="lg:col-span-7">
-                <ContactForm />
+                <Suspense fallback={<div className="h-[520px] rounded-[28px] bg-[var(--surface)] border border-[var(--line)]" />}>
+                  <ContactForm />
+                </Suspense>
               </div>
               <div className="order-first lg:order-none lg:col-span-5">
                 <ContactDoors />
@@ -33,7 +36,9 @@ export default function ContactPage() {
             </div>
           ) : (
             <div className="mx-auto max-w-2xl">
-              <ContactForm />
+              <Suspense fallback={<div className="h-[520px] rounded-[28px] bg-[var(--surface)] border border-[var(--line)]" />}>
+                <ContactForm />
+              </Suspense>
             </div>
           )}
         </div>

@@ -29,6 +29,8 @@ function getScrollServerSnapshot() {
   return false;
 }
 
+const DEMO_ROUTES = ["/demo/sharp", "/chair", "/sharp"];
+
 export function Navbar() {
   const pathname = usePathname();
   const isScrolled = useSyncExternalStore(
@@ -37,6 +39,14 @@ export function Navbar() {
     getScrollServerSnapshot
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  if (
+    DEMO_ROUTES.some(
+      (route) => pathname === route || pathname.startsWith(`${route}/`)
+    )
+  ) {
+    return null;
+  }
 
   return (
     <>

@@ -15,6 +15,18 @@ const nextConfig: NextConfig = {
   experimental: {
     agentUpgrade: "security",
   },
+  async rewrites() {
+    return [
+      {
+        source: "/chair",
+        destination: "/demo/sharp",
+      },
+      {
+        source: "/sharp",
+        destination: "/demo/sharp",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

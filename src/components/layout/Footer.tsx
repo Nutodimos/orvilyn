@@ -1,10 +1,24 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { site } from "@/data/site";
 
+const DEMO_ROUTES = ["/demo/sharp", "/chair", "/sharp"];
+
 export function Footer() {
+  const pathname = usePathname();
   const currentYear = 2026;
+
+  if (
+    DEMO_ROUTES.some(
+      (route) => pathname === route || pathname.startsWith(`${route}/`)
+    )
+  ) {
+    return null;
+  }
 
   const pages = [
     { label: "Home", href: "/" },
