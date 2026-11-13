@@ -15,7 +15,7 @@ const NEXT_STEPS = [
   {
     number: "2",
     title: "A short call.",
-    description: "15 minutes, zero jargon, zero sales pressure. Just finding out what you need.",
+    description: "30 minutes, zero jargon, zero sales pressure. Just finding out what you need.",
   },
   {
     number: "3",

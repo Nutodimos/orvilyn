@@ -28,7 +28,7 @@ export const site: SiteConfig = {
   tagline: "You’ve got a business. We’ll handle the tech.",
   email: "hello@orvilyn.com",
   whatsapp: "+2348071658176", // TODO: replace; hide in footer if empty
-  bookingUrl: "", // TODO: Cal.com link for a 15-minute chat
+  bookingUrl: "https://calendly.com/somidotunaina/30min",
   whatsappMessage: "Hi Orvilyn, I found you through your website and I’d like to talk about…",
   socials: [
     {

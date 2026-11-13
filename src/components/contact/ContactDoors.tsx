@@ -57,7 +57,7 @@ export function getDoors(): DoorItem[] {
     doors.push({
       id: "booking",
       icon: CalendarClock,
-      title: "Book a 15-minute chat",
+      title: "Book a 30-minute chat",
       text: "Pick a time that suits you in your own time zone.",
       href: bookingUrl,
       external: true,
@@ -117,7 +117,7 @@ export function ContactDoors() {
     doors.push({
       id: "booking",
       icon: CalendarClock,
-      title: "Book a 15-minute chat",
+      title: "Book a 30-minute chat",
       text: "Pick a time that suits you in your own time zone.",
       href: bookingUrl,
       external: true,
