@@ -31,7 +31,7 @@ export default function ContactPage() {
                 <MultiStepLeadForm />
               </Suspense>
             </div>
-            <div className="order-first lg:order-none lg:col-span-5">
+            <div className="lg:col-span-5">
               <ContactDoors />
             </div>
           </div>
